@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-This is a brief webscrapring script to summarise/report on
-defined elements on eac Samling Artist profile page.
+This is a brief webscraping script to summarise/report on
+defined elements on each Samling Artist profile page.
 
 For further information, see the README.
 """
@@ -11,17 +11,18 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
 
-MAIN_URL = "http://www.samling.org.uk/samling-artist-programme/artists/"
-uClient = uReq(MAIN_URL)
+URL = "http://www.samling.org.uk/samling-artist-programme/artists/"
+HEADERS = "Name,URL,Voice-type/Instrument,SAP-Year,IMG,Quote\n"
+OUT_FILENAME = "sap_artists.csv"
+
+uClient = uReq(URL)
 page_html = uClient.read()
 uClient.close()
 page_soup = soup(page_html, "html.parser")
 musicians = page_soup.find_all("h1", {"class": "artist__name"})
 
-OUT_FILENAME = "sap_artists.csv"
-HEADERS = "Name,URL,Voice-type/Instrument,SAP-Year,IMG,Quote\n"
 
-f = open(OUT_FILENAME, "w", encoding='utf-8')
+f = open(OUT_FILENAME, "w", encoding="utf-8")
 f.write(HEADERS)
 
 for musician in musicians:
@@ -52,8 +53,4 @@ for musician in musicians:
         + QUOTE.replace(",", "[comma]")
         + "\n"
     )
-
-#   NB: The parsing/outputting of the head_text is a bit clunky, but
-#   is advantageous as it highlights inconsistencies and typos.
-
 f.close()
