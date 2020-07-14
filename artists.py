@@ -21,7 +21,7 @@ musicians = page_soup.find_all("h1", {"class": "artist__name"})
 OUT_FILENAME = "sap_artists.csv"
 HEADERS = "Name,URL,Voice-type/Instrument,SAP-Year,IMG,Quote\n"
 
-f = open(OUT_FILENAME, "w")
+f = open(OUT_FILENAME, "w", encoding='utf-8')
 f.write(HEADERS)
 
 for musician in musicians:
