@@ -14,16 +14,20 @@ Allow up to ~15 minutes for a complete scrape, though it will typically run much
 
 ### Current behaviour
 
-The scraper reads <http://www.samling.org.uk/samling-artist-programme/artists/> for a list of all Samling Artists. From this, it extracts the artist's name and the URL of their local profile page. It then loops through each URL and reads the h2/sub-heading text which should conform to a set pattern: <VoiceType, Samling Artist Programme: Year>. It then checks for the presence of an image. 
+The scraper reads <http://www.samling.org.uk/samling-artist-programme/artists/> for a list of all Samling Artists. From this, it extracts the artist's name and the URL of their local profile page. It then loops through each URL and reads the h2/sub-heading text which should conform to a set pattern: <VoiceType, Samling Artist Programme: Year>. It then checks for the presence of an image. Finally, it checks for the presence of a quote and, if present, saves this.  
 
-This data is then appended to a csv file in the current working directory, reporting five headers: Name, URL, Voice-type/Instrument, SAP-Year, IMG.
+This data is then appended to a csv file in the current working directory, reporting six headers: Name, URL, Voice-type/Instrument, SAP-Year, IMG, Quote.
 
 #### Useful side effects
 
 If the sub-header text does not match the pattern above, the scraper continues but the inconsistency is easily identified by the incorrect presence of the string 'Samling Artist Programme:' (or similar) and the 'IMG' response will be in the wrong column. 
 
+### Recent changes
+
+The inclusion of the quote scraping is new. It currently converts all commas from ',' to '[comma]' within the quote, so the csv output is not troubled. This can be overcome better (to allow commas within the quote strings), and will likely be revised. 
+
 ### Possible future adaption
 
-This will likely extend to report the presence of both personal URLs and the URLs of an agent. It should also be possible to report the presence of blockquotations and custom biographies. 
+This will likely extend to report the presence of both personal URLs and the URLs of an agent.  
 
 Once fully trialled, this will be compiled into a .exe file for wider use.
