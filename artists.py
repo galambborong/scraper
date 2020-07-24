@@ -7,7 +7,7 @@ defined elements on each Samling Artist profile page.
 For further information, see the README.
 """
 
-from urllib.request import urlopen as uReq
+from requests import get as uReq
 from bs4 import BeautifulSoup as soup
 
 
@@ -16,7 +16,7 @@ HEADERS = "Name,URL,Voice-type/Instrument,SAP-Year,IMG,Quote\n"
 OUT_FILENAME = "sap_artists.csv"
 
 uClient = uReq(URL)
-page_html = uClient.read()
+page_html = uClient.text
 uClient.close()
 page_soup = soup(page_html, "html.parser")
 musicians = page_soup.find_all("h1", {"class": "artist__name"})
@@ -29,7 +29,7 @@ for musician in musicians:
     NAME = str(musician.text.strip())
     LINK = str(musician.a["href"])
     tClient = uReq(LINK)
-    musician_html = tClient.read()
+    musician_html = tClient.text
     tClient.close()
     musician_soup = soup(musician_html, "html.parser")
     HEAD_TEXT = musician_soup.h2.text
