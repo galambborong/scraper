@@ -2,7 +2,7 @@
 
 ## Update!
 
-This was created as a time-saving solution when I worked at Samling Institute for Young Artists, which I left in December 2020. They have since launched a new website, so this script is now redundant. The last archived version of the site is [here](https://web.archive.org/web/20201202054649/http://www.samling.org.uk/samling-artist-programme/artists/).
+This was created as a time-saving solution when I worked at Samling Institute for Young Artists, which I left in December 2020. They have since launched a new website, so this script is now redundant. The last archived version of the site this script was designed to work with is [here](https://web.archive.org/web/20201202054649/http://www.samling.org.uk/samling-artist-programme/artists/).
 
 ## Main README contents
 
