@@ -1,14 +1,16 @@
-# Obligatory README
+# Samling Artists web scraper
+
+## Update!
+
+This was created as a time-saving solution when I worked at Samling Institute for Young Artists, which I left in December 2020. They have since launched a new website, so this script is now redundant. The last archived version of the site is [here](https://web.archive.org/web/20201202054649/http://www.samling.org.uk/samling-artist-programme/artists/).
+
+## Main README contents
 
 This brief webscraper loops through the unique URLs of every Samling Artist and reports defined elements into a csv file.
 
 Run as a Python script, either by typing:
 
-```$ ./artists.py```
-
-or
-
-```$ python artists.py```
+`$ ./artists.py` or `$ python artists.py`
 
 Allow up to ~15 minutes for a complete scrape, though it will typically run much quicker than this. This script does not raise exceptions. For dependencies, see requirements.txt. 
 
@@ -25,9 +27,3 @@ If the sub-header text does not match the pattern above, the scraper continues b
 ### Recent changes
 
 The inclusion of the quote scraping is new. It currently converts all commas from ',' to '[comma]' within the quote, so the csv output is not troubled. This can be overcome better (to allow commas within the quote strings), and will likely be revised. 
-
-### Possible future adaption
-
-This will likely extend to report the presence of both personal URLs and the URLs of an agent.  
-
-Once fully trialled, this will be compiled into a .exe file for wider use.
